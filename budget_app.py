@@ -1,4 +1,5 @@
 import db
+from datetime import datetime
 
 #db.add_one("Place", 99)
 
@@ -24,9 +25,10 @@ def add_trans():
     while True:
         name = input('Enter the store or transaction name: ')
         amount = input('Enter the amount: ')
+        date = datetime.now().strftime('%m-%d-%Y')
         if amount == '0':
             break
-        db.add_one(name,amount)
+        db.add_one(name,amount,date)
 
 def view_transactions():
     print('\nAll transactions: ')
